@@ -50,7 +50,7 @@ class _UserDrawerState extends State<UserDrawer> {
       // Appel de l'API pour comparer l'adresse IP avec les plages autorisées
       var response = await http.get(
         Uri.parse(
-            'http://192.168.1.20:8000/abscence/check_ip_allowed/$publicIpAddress'),
+            'http://192.168.1.22:8000/abscence/check_ip_allowed/$publicIpAddress'),
       );
 
       if (response.statusCode == 200) {
@@ -77,7 +77,7 @@ class _UserDrawerState extends State<UserDrawer> {
   }
 
   Future<void> fetchInstitutData() async {
-    String apiUrl = 'http://192.168.1.20:8000/client/get_Institut/';
+    String apiUrl = 'http://192.168.1.22:8000/client/get_Institut/';
     try {
       var response = await http.get(
         Uri.parse(apiUrl),
@@ -215,44 +215,36 @@ class _UserDrawerState extends State<UserDrawer> {
                   icon: Icons.note_alt_outlined,
                   text: 'Absences',
                   onTap: () async {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SeancesWidget(
-                          userModel: widget.userModel,
-                        ),
-                      ),
-                    );
                     // Appel de la méthode pour obtenir l'adresse IP de l'utilisateur
                     // Vérification de l'autorisation avec l'adresse IP récupérée
-                    // bool isAllowed = await _checkIpAddressAllowed(
-                    //     widget.userModel.publicIpAddress);
-                    // // Si l'adresse IP est autorisée, naviguer vers la page des Absences
-                    // if (isAllowed) {
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => SeancesWidget(
-                    //         userModel: widget.userModel,
-                    //       ),
-                    //     ),
-                    //   );
-                    // } else {
-                    //   // Sinon, afficher un message indiquant que l'accès est refusé
-                    //   showDialog(
-                    //     context: context,
-                    //     builder: (BuildContext context) {
-                    //       return CustomAlertDialog(
-                    //         title: 'Accès refusé',
-                    //         content:
-                    //             'Votre adresse IP n\'est pas autorisée à accéder à cette section.',
-                    //         onPressed: () {
-                    //           Navigator.of(context).pop();
-                    //         },
-                    //       );
-                    //     },
-                    //   );
-                    // }
+                    bool isAllowed = await _checkIpAddressAllowed(
+                        widget.userModel.publicIpAddress);
+                    // Si l'adresse IP est autorisée, naviguer vers la page des Absences
+                    if (isAllowed) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SeancesWidget(
+                            userModel: widget.userModel,
+                          ),
+                        ),
+                      );
+                    } else {
+                      // Sinon, afficher un message indiquant que l'accès est refusé
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return CustomAlertDialog(
+                            title: 'Accès refusé',
+                            content:
+                                'Votre adresse IP n\'est pas autorisée à accéder à cette section.',
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          );
+                        },
+                      );
+                    }
                   },
                 ),
 

@@ -40,7 +40,7 @@ class _PhotocopieWidgetState extends State<PhotocopieWidget> {
   Future<void> _fetchPhotocopieDataForEnseignant() async {
     String cin = widget.userModel.cin;
     String apiUrl =
-        'http://192.168.1.20:8000/photocopie/photocopie_by_cin/${cin}';
+        'http://192.168.1.22:8000/photocopie/photocopie_by_cin/${cin}';
     try {
       var response = await http.get(
         Uri.parse(apiUrl),
@@ -73,7 +73,7 @@ class _PhotocopieWidgetState extends State<PhotocopieWidget> {
   }
 
   Future<void> _fetchPhotocopieListData() async {
-    String apiUrl = 'http://192.168.1.20:8000/photocopie/get_photocopie_list/';
+    String apiUrl = 'http://192.168.1.22:8000/photocopie/get_photocopie_list/';
     try {
       var response = await http.get(
         Uri.parse(apiUrl),

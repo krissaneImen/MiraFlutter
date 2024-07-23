@@ -30,7 +30,7 @@ class _CoursWidgetState extends State<CoursWidget>
   late List<Color> randomColors;
 
   Future<void> _fetchCoursData() async {
-    String apiUrl = 'http://localhost:8000/cours/get_support_list/';
+    String apiUrl = 'http://192.168.1.22:8000/cours/get_support_list/';
     try {
       var response = await http.get(
         Uri.parse(apiUrl),

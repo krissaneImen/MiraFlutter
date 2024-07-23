@@ -32,7 +32,7 @@ class _AccueilState extends State<Accueil> {
   }
 
   Future<void> fetchInstitutData() async {
-    String apiUrl = 'http://localhost:8000/client/get_Institut/';
+    String apiUrl = 'http://192.168.1.22:8000/client/get_Institut/';
     try {
       var response = await http.get(
         Uri.parse(apiUrl),

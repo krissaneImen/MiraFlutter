@@ -32,13 +32,14 @@ class _StudentJournalsState extends State<StudentJournals> {
   Future<void> _fetchStudentJournals() async {
     String apiUrl;
     if (widget.userModel.statut.toLowerCase() == 'etudiant') {
-      apiUrl = 'http://127.0.0.1:8000/journale/get_all_journale/${widget.cin}';
+      apiUrl =
+          'http://192.168.1.22:8000/journale/get_all_journale/${widget.cin}';
     } else if (widget.userModel.statut.toLowerCase() == 'enseignant') {
       apiUrl =
-          'http://127.0.0.1:8000/journale/get_students_by_rapporteur_cin/${widget.cin}';
+          'http://192.168.1.22:8000/journale/get_students_by_rapporteur_cin/${widget.cin}';
     } else {
       // Default URL if the user's status is not 'Etudiant' or 'Enseignant'
-      apiUrl = 'http://172.16.26.109:8000/journale/get_all_journale/';
+      apiUrl = 'http://192.168.1.22:8000/journale/get_all_journale/';
     }
 
     try {

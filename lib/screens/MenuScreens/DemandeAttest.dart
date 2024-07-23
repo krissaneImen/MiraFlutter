@@ -35,7 +35,7 @@ class _AttestationWidgetState extends State<AttestationWidget> {
 
   Future<void> _fetchAttestationsData() async {
     String cin = widget.userModel.cin;
-    String apiUrl = 'http://172.16.26.109:8000/demande/demandes/${cin}';
+    String apiUrl = 'http://192.168.1.22:8000/demande/demandes/${cin}';
     try {
       var response = await http.get(
         Uri.parse(apiUrl),

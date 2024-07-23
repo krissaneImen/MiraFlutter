@@ -64,7 +64,7 @@ class UserModel extends ChangeNotifier {
   Future<void> getUserIpAddress() async {
     try {
       var response = await http
-          .get(Uri.parse('http://192.168.1.20:8000/abscence/my_IpAdress/'));
+          .get(Uri.parse('http://192.168.1.22:8000/abscence/my_IpAdress/'));
       if (response.statusCode == 200) {
         var data = json.decode(utf8.decode(response.bodyBytes));
         privateIpAddress = data['private_ip_address'];
@@ -84,7 +84,7 @@ class UserModel extends ChangeNotifier {
   // Connexion
   Future<void> loginUser(BuildContext context) async {
     try {
-      var url = Uri.parse('http://192.168.1.20:8000/users/login/');
+      var url = Uri.parse('http://192.168.1.22:8000/users/login/');
       var headers = {'Content-Type': 'application/json'};
       var body = json.encode({
         'cin': _cinController.text,
@@ -154,8 +154,8 @@ class UserModel extends ChangeNotifier {
 
   Future<void> registerUser(BuildContext context) async {
     try {
-      var userUrl = Uri.parse('http://192.168.1.20:8000/users/register/');
-      var profileUrl = Uri.parse('http://192.168.1.20:8000/profil/create/');
+      var userUrl = Uri.parse('http://192.168.1.22:8000/users/register/');
+      var profileUrl = Uri.parse('http://192.168.1.22:8000/profil/create/');
 
       var headers = {'Content-Type': 'application/json'};
       var userBody = json.encode({
@@ -242,7 +242,7 @@ class UserModel extends ChangeNotifier {
       print('CIN est null');
       return;
     }
-    String apiUrl = 'http://192.168.1.20:8000/profil/profiles/cin/$cin';
+    String apiUrl = 'http://192.168.1.22:8000/profil/profiles/cin/$cin';
 
     try {
       var response = await http.get(Uri.parse(apiUrl));

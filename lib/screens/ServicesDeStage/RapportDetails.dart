@@ -33,7 +33,7 @@ class _RapportDetailsState extends State<RapportDetails> {
     print('photocopie ID: ${widget.rapportId}');
 
     String apiUrl =
-        'http://127.0.0.1:8000/rapport/get_Rapport_by_id/${widget.rapportId}';
+        'http://192.168.1.22:8000/rapport/get_Rapport_by_id/${widget.rapportId}';
     try {
       var response = await http.get(
         Uri.parse(apiUrl),
@@ -55,7 +55,7 @@ class _RapportDetailsState extends State<RapportDetails> {
   }
 
   Future<void> _openPdf(BuildContext context) async {
-    final url = 'http://127.0.0.1:8000/rapport/open_pdf/${widget.rapportId}';
+    final url = 'http://192.168.1.22:8000/rapport/open_pdf/${widget.rapportId}';
 
     try {
       // Ouvrir le PDF dans une visionneuse PDF externe

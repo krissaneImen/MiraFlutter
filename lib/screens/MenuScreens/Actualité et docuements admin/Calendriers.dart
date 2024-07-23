@@ -45,7 +45,7 @@ class _CalenriersWidgetState extends State<CalendriersWidget> {
   }
 
   Future<void> _openPdf(String calendrierId) async {
-    final url = 'http://localhost:8000/calendrier/open_pdf/$calendrierId';
+    final url = 'http://192.168.1.22:8000/calendrier/open_pdf/$calendrierId';
 
     try {
       // Ouvrir le PDF dans une visionneuse PDF externe
@@ -60,7 +60,7 @@ class _CalenriersWidgetState extends State<CalendriersWidget> {
   }
 
   Future<void> _fetchCalendrierData() async {
-    String apiUrl = 'http://localhost:8000/calendrier/get_Calandrier_list/';
+    String apiUrl = 'http://192.168.1.22:8000/calendrier/get_Calandrier_list/';
     try {
       var response = await http.get(
         Uri.parse(apiUrl),

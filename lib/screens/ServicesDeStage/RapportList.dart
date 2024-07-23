@@ -38,12 +38,12 @@ class _RapportListState extends State<RapportList> {
     String apiUrl;
     if (widget.userModel.statut.toLowerCase() == 'etudiant') {
       apiUrl =
-          'http://127.0.0.1:8000/rapport/get_Rapport_list_by_cin/${widget.userModel.cin}';
+          'http://192.168.1.22:8000/rapport/get_Rapport_list_by_cin/${widget.userModel.cin}';
     } else if (widget.userModel.statut.toLowerCase() == 'administratif') {
-      apiUrl = 'http://127.0.0.1:8000/rapport/get_Rapport_list/';
+      apiUrl = 'http://192.168.1.22:8000/rapport/get_Rapport_list/';
     } else {
       apiUrl =
-          'http://127.0.0.1:8000/rapport/get_students_by_rapporteur_cin/${widget.userModel.cin}';
+          'http://192.168.1.22:8000/rapport/get_students_by_rapporteur_cin/${widget.userModel.cin}';
     }
 
     try {

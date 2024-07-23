@@ -31,7 +31,7 @@ class _SeancesWidgetState extends State<SeancesWidget> {
   Future<void> _fetchSeancesData() async {
     String cin = widget.userModel.cin;
     String apiUrl =
-        'http://192.168.1.20:8000/emploiProf/get_seances_by_cin/$cin';
+        'http://192.168.1.22:8000/emploiProf/get_seances_by_cin/$cin';
     try {
       var response = await http.get(
         Uri.parse(apiUrl),

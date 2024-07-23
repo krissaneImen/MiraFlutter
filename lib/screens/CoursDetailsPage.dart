@@ -37,7 +37,7 @@ class _CoursDetailsState extends State<CoursDetails> {
     print('Formation ID: ${widget.id}');
 
     String apiUrl =
-        'http://localhost:8000/cours/get_Support_by_id/${widget.id}';
+        'http://192.168.1.22:8000/cours/get_Support_by_id/${widget.id}';
     try {
       var response = await http.get(
         Uri.parse(apiUrl),
@@ -65,7 +65,7 @@ class _CoursDetailsState extends State<CoursDetails> {
   }
 
   Future<void> _openPdf(BuildContext context) async {
-    final url = 'http://localhost:8000/cours/open_pdf/${widget.id}';
+    final url = 'http://192.168.1.22:8000/cours/open_pdf/${widget.id}';
 
     try {
       // Ouvrir le PDF dans une visionneuse PDF externe

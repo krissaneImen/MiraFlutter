@@ -43,7 +43,7 @@ class _ActualiteWidgetState extends State<ActualiteWidget> {
     String statut = widget.userModel.statut.toLowerCase();
 
     String apiUrl =
-        'http://172.16.26.109:8000/actualite/get_all_actualite/${statut}';
+        'http://192.168.1.22:8000/actualite/get_all_actualite/${statut}';
     try {
       var response = await http.get(
         Uri.parse(apiUrl),

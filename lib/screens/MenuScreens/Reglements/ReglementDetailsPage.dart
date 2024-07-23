@@ -35,14 +35,14 @@ class _ReglementDetailsPageState extends State<ReglementDetailsPage> {
     try {
       final response1 = await http.get(
         Uri.parse(
-            'http://172.16.26.109:8000/documentation/reglements/${widget.reglementType}/'),
+            'http://192.168.1.22:8000/documentation/reglements/${widget.reglementType}/'),
         headers: {
           'Accept-Charset': 'utf-8'
         }, // Ajout de l'en-tête Accept-Charset
       );
       final response2 = await http.get(
         Uri.parse(
-            'http://172.16.26.109:8000/reglement/get_reglement_list/${widget.reglementType}/'),
+            'http://192.168.1.22:8000/reglement/get_reglement_list/${widget.reglementType}/'),
         headers: {
           'Accept-Charset': 'utf-8'
         }, // Ajout de l'en-tête Accept-Charset
@@ -67,7 +67,7 @@ class _ReglementDetailsPageState extends State<ReglementDetailsPage> {
   }
 
   Future<void> _openPdf(String reglementId) async {
-    final url = 'http://172.16.25.125:8000/reglement/open_pdf/$reglementId';
+    final url = 'http://192.168.1.22:8000/reglement/open_pdf/$reglementId';
 
     try {
       if (await canLaunch(url)) {

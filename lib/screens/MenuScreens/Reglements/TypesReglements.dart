@@ -31,7 +31,7 @@ class _TypesReglementState extends State<TypesReglement> {
     final userType =
         'administratif'.toLowerCase(); // Normalisation en minuscules
     final response = await http.get(Uri.parse(
-        'http://172.16.26.109:8000/GestionType/types/$userType/Reglement/'));
+        'http://192.168.1.22:8000/GestionType/types/$userType/Reglement/'));
     if (response.statusCode == 200) {
       setState(() {
         reglementTypes = json.decode(response.body);

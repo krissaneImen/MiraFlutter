@@ -59,7 +59,7 @@ class __DetailsWidgetStateState extends State<_DetailsWidgetState> {
     print('photocopie ID: ${widget.photocopieId}');
 
     String apiUrl =
-        'http://192.168.1.20:8000/photocopie/get_photocopie_by_id/${widget.photocopieId}';
+        'http://192.168.1.22:8000/photocopie/get_photocopie_by_id/${widget.photocopieId}';
     try {
       var response = await http.get(
         Uri.parse(apiUrl),
@@ -84,7 +84,7 @@ class __DetailsWidgetStateState extends State<_DetailsWidgetState> {
 
   Future<void> _openPdf(BuildContext context) async {
     final url =
-        'http://192.168.1.20:8000/photocopie/open_pdf/${widget.photocopieId}';
+        'http://192.168.1.22:8000/photocopie/open_pdf/${widget.photocopieId}';
 
     try {
       // Ouvrir le PDF dans une visionneuse PDF externe
@@ -100,7 +100,7 @@ class __DetailsWidgetStateState extends State<_DetailsWidgetState> {
 
   Future<void> _fetchEtatData() async {
     String apiUrl =
-        'http://192.168.1.20:8000/demande/get_demande_by_id/${widget.idDemande}';
+        'http://192.168.1.22:8000/demande/get_demande_by_id/${widget.idDemande}';
     try {
       var response = await http.get(
         Uri.parse(apiUrl),

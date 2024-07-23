@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
+import 'package:mira/Provider/Auth_model.dart';
 import 'package:mira/Provider/user_model.dart';
 import 'package:mira/Widgets/SignUpWidgets/CustomCINFormField.dart';
 import 'package:mira/Screens/AuthScreens/signup.dart';
@@ -32,31 +33,16 @@ class _LoginPage extends State<LoginPage> with TickerProviderStateMixin {
         ),
       );
     });
-    fetchInstitutData();
+    fetchData(); // Appeler la nouvelle fonction
   }
 
-  Future<void> fetchInstitutData() async {
-    String apiUrl = 'http://192.168.1.20:8000/client/get_Institut/';
-    try {
-      var response = await http.get(
-        Uri.parse(apiUrl),
-        headers: {
-          'Accept-Charset': 'utf-8',
-        },
-      );
-
-      if (response.statusCode == 200) {
-        var data = json.decode(utf8.decode(response.bodyBytes));
-        setState(() {
-          donnees = data;
-          _isLoading = false;
-        });
-      } else {
-        print('Failed to load the data: ${response.statusCode}');
-      }
-    } catch (e) {
-      print('Error loading the data: $e');
-    }
+  Future<void> fetchData() async {
+    List<dynamic> data =
+        await fetchInstitutData(); // Utiliser la fonction importée
+    setState(() {
+      donnees = data;
+      _isLoading = false;
+    });
   }
 
   @override

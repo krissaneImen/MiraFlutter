@@ -33,7 +33,7 @@ class _EmploiWidgetState extends State<EmploiWidget> {
   Future<void> _fetchEmploisData() async {
     String cin = widget.userModel.cin;
     String apiUrl =
-        'http://172.16.26.109:8000/enseignantEmploi/get_employment_by_cin/${cin}';
+        'http://192.168.1.22:8000/enseignantEmploi/get_employment_by_cin/${cin}';
     try {
       var response = await http.get(
         Uri.parse(apiUrl),

@@ -27,7 +27,7 @@ class ProfileModel {
     required String image,
     required BuildContext context, // Ajout du contexte
   }) async {
-    String apiUrl = 'http://localhost:8000/profil/update/$cin/';
+    String apiUrl = 'http://192.168.1.22:8000/profil/update/$cin/';
 
     try {
       var response = await http.put(

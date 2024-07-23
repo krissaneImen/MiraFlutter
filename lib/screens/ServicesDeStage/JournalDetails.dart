@@ -37,7 +37,7 @@ class _JournalDetailsState extends State<JournalDetails> {
   Future<void> _fetchTachesDetails() async {
     print('Tache ID: ${widget.journalId}');
     String apiUrl =
-        'http://127.0.0.1:8000/tache/get_all_tache/${widget.journalId}';
+        'http://192.168.1.22:8000/tache/get_all_tache/${widget.journalId}';
     try {
       var response = await http.get(
         Uri.parse(apiUrl),
@@ -87,7 +87,7 @@ class _JournalDetailsState extends State<JournalDetails> {
   Future<void> _fetchEvaluationsDetails() async {
     print('Evaluation ID: ${widget.journalId}');
     String apiUrl =
-        'http://127.0.0.1:8000/stageEvaluation/get_all_Evaluations/${widget.userModel.cin}/${widget.journalId}';
+        'http://192.168.1.22:8000/stageEvaluation/get_all_Evaluations/${widget.userModel.cin}/${widget.journalId}';
     try {
       var response = await http.get(
         Uri.parse(apiUrl),

@@ -36,7 +36,7 @@ class _SoutenanceListState extends State<SoutenanceList> {
   }
 
   Future<void> _fetchSoutenancesData() async {
-    String apiUrl = 'http://172.16.26.109:8000/soutenance/soutenances/';
+    String apiUrl = 'http://192.168.1.22:8000/soutenance/soutenances/';
     try {
       var response = await http.get(
         Uri.parse(apiUrl),

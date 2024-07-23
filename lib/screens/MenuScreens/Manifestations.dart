@@ -38,7 +38,7 @@ class _CalenriersWidgetState extends State<ManifestationsWidget> {
     String statut = widget.userModel.statut;
 
     String apiUrl =
-        'http://172.16.26.109:8000/manifestation/manifestations/${statut}';
+        'http://192.168.1.22:8000/manifestation/manifestations/${statut}';
     try {
       var response = await http.get(
         Uri.parse(apiUrl),

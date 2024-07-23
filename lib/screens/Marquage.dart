@@ -34,7 +34,7 @@ class _MarquageState extends State<Marquage> {
 
   Future<void> _fetchStudentsData() async {
     String apiUrl =
-        'http://192.168.1.20:8000/groupe/get_students_by_group/${widget.groupe}';
+        'http://192.168.1.22:8000/groupe/get_students_by_group/${widget.groupe}';
     try {
       var response = await http
           .get(Uri.parse(apiUrl), headers: {'Accept-Charset': 'utf-8'});
@@ -73,7 +73,7 @@ class _MarquageState extends State<Marquage> {
     });
 
     if (absentStudents.isNotEmpty) {
-      String apiUrl = 'http://192.168.1.20:8000/abscence/create/';
+      String apiUrl = 'http://192.168.1.22:8000/abscence/create/';
 
       try {
         var response = await http.post(

@@ -36,7 +36,7 @@ class _FormationListState extends State<FormationList> {
   Future<void> _fetchFormationsData() async {
     String statut = widget.userModel.statut.toLowerCase();
 
-    String apiUrl = 'http://172.16.26.109:8000/formation/formations/${statut}';
+    String apiUrl = 'http://192.168.1.22:8000/formation/formations/${statut}';
     try {
       var response = await http.get(
         Uri.parse(apiUrl),

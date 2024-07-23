@@ -79,7 +79,7 @@ class _DetailsActualiteWidgetState extends State<DetailsActualiteWidget>
     print('Actualité ID: ${widget.actualiteId}');
 
     String apiUrl =
-        'http://172.16.26.109:8000/actualite/get_actualite_by_id/${widget.actualiteId}';
+        'http://192.168.1.22:8000/actualite/get_actualite_by_id/${widget.actualiteId}';
     try {
       var response = await http.get(
         Uri.parse(apiUrl),
@@ -104,7 +104,7 @@ class _DetailsActualiteWidgetState extends State<DetailsActualiteWidget>
 
   Future<void> _openPdf(BuildContext context) async {
     final url =
-        'http://172.16.26.109:8000/actualite/open_pdf/${widget.actualiteId}';
+        'http://192.168.1.22:8000/actualite/open_pdf/${widget.actualiteId}';
 
     try {
       // Ouvrir le PDF dans une visionneuse PDF externe
